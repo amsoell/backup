@@ -43,7 +43,7 @@ class MysqlDump extends Command
 
         $filename = $database.'_'.empty(trim($this->argument('filename'))) ? $database.'_'.\Carbon\Carbon::now()->format('YmdHis') : trim($this->argument('filename'));
 
-        $dumpCommand = "mysqldump -e -f -h $host -u $username -p$password $database > $backupPath$filename.sql";
+        $dumpCommand = "/usr/local/bin/mysqldump/mysqldump -e -f -h $host -u $username -p$password $database > $backupPath$filename.sql";
 
         exec($dumpCommand);
 
